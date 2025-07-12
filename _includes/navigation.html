@@ -1,0 +1,14 @@
+<div class="nav-menu">
+    <nav class="mainmenu mobile-menu">
+        <ul>
+            {% for item in site.data.navigation %}
+            <li>
+                <a href="{{ item.link }}" {% if page.url == item.link %}class="active"{% endif %}>
+                    {{ item.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+<div id="mobile-menu-wrap"></div>
