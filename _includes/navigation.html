@@ -2,8 +2,8 @@
     <nav class="mainmenu mobile-menu">
         <ul>
             {% for item in site.data.navigation %}
-            <li>
-                <a href="{{ item.link }}" {% if page.url == item.link %}class="active"{% endif %}>
+            <li {% if page.url == item.link %}class="active"{% endif %}>
+                <a href="{{ item.link }}">
                     {{ item.name }}
                 </a>
             </li>
