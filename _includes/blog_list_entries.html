@@ -1,0 +1,9 @@
+<h4>Recent Workouts</h4>
+{% for post in site.posts limit:5 %}
+<div class="sr-item">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h5>{{ post.title }}</h5>
+    </a>
+    <div class="blog-date">{{ post.date | date: "%b %d, %Y" }}</div>
+</div>
+{% endfor %}
