@@ -2,135 +2,35 @@
 layout: default
 title: The Diary of Pain
 ---
-<!-- Page Header Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="./assets/img/page-header-bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="site-text">
-                    <h2>{{ page.title }}</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Page Header End -->
+{% include page_header.html %}
 
 <!-- Blog Section Begin -->
 <section class="blog-section spad">
     <div class="container">
         <div class="row">
+
+            <!-- Main list of blog entries Begin -->
             <div class="col-lg-8">
                 <div class="blog-items">
-                    <!-- Blog Item Begin -->
+                    {% for post in site.posts limit:5 %}
+                     <!-- Blog Item Begin -->
                     <div class="single-blog-item">
-                        <div class="blog-pic">
-                            <img src="./assets/img/blog/blog-1.jpg" alt="">
-                        </div>
                         <div class="blog-text">
-                            <div class="blog-tag">
-                                <div class="post-info">
-                                    <span>Adam</span> - Dec 29, 2018
-                                </div>
-                                <div class="tag-details">
-                                    <a href="#" class="tag-comments">
-                                        <i class="fa fa-tag"></i>
-                                        Cycling
-                                    </a>
-                                </div>
-                            </div>
                             <a href="./blog-details.html">
-                                <h3>Are Crunches the Best Workout for Abs?</h3>
+                                <h3>{{ post.date | date: "%b %d, %Y" }}</h3>
                             </a>
-                            <p>It’s a moment many aspiring marathoners fantasize about as they finish their
-                                umpteenth long training run: The few weeks leading up to the race when a training
-                                program calls for less running...</p>
+
+                            <p>{{ post.content }}</p>
                             <a href="#" class="blog-btn">Read More <i class="fa  fa-angle-double-right"></i></a>
                         </div>
                     </div>
                     <!-- Blog Item End -->
-                    <div class="single-blog-item">
-                        <div class="blog-pic">
-                            <img src="./assets/img/blog/blog-2.jpg" alt="">
-                        </div>
-                        <div class="blog-text">
-                            <div class="blog-tag">
-                                <div class="post-info">
-                                    <span>John Smith</span> - Dec 29, 2018
-                                </div>
-                                <div class="tag-details">
-                                    <a href="./blog-details.html" class="tag-event">
-                                        <i class="fa fa-tag"></i>
-                                        Event
-                                    </a>
-                                    <a href="blog-details.html" class="tag-comments">
-                                        <i class="fa fa-comments-o"></i>
-                                        6 Comments
-                                    </a>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h3>How to Stop Muscle Cramps in Their Tracks</h3>
-                            </a>
-                            <p>It’s a moment many aspiring marathoners fantasize about as they finish their
-                                umpteenth long training run: The few weeks leading up to the race when a training
-                                program calls for less running...</p>
-                            <a href="#" class="blog-btn">Read More <i class="fa  fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="single-blog-item">
-                        <div class="blog-pic">
-                            <img src="./assets/img/blog/blog-3.jpg" alt="">
-                        </div>
-                        <div class="blog-text">
-                            <div class="blog-tag">
-                                <div class="post-info">
-                                    <span>Aby</span> - Dec 29, 2018
-                                </div>
-                                <div class="tag-details">
-                                    <a href="./blog-details.html" class="tag-event">
-                                        <i class="fa fa-tag"></i>
-                                        Treatment
-                                    </a>
-                                    <a href="#" class="tag-comments">
-                                        <i class="fa fa-comments-o"></i>
-                                        2 Comments
-                                    </a>
-                                </div>
-                            </div>
-                            <a href="blog-details.html">
-                                <h3>The 17 Most Amazing Fitness Vacations of 2014</h3>
-                            </a>
-                            <p>It’s a moment many aspiring marathoners fantasize about as they finish their
-                                umpteenth long training run: The few weeks leading up to the race when a training
-                                program calls for less running...</p>
-                            <a href="#" class="blog-btn">Read More <i class="fa  fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">Next <i class="fa fa-angle-double-right"></i></a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="col-lg-3 offset-lg-1">
-                <div class="blog-sidebar">
-                    <div class="sidebar-recent">
-                        {% include blog_list_entries.html %}
-                    </div>
-                    <div class="popular-tags">
-                        <h4>Popular Tags</h4>
-                        <a href="#">Cycling</a>
-                        <a href="#">Building</a>
-                        <a href="#">Trianer</a>
-                        <a href="#">Medicine products</a>
-                        <a href="#">Medication</a>
-                        <a href="#">Treatment</a>
-                        <a href="#">Event</a>
-                    </div>
-                </div>
-            </div>
+            <!-- Main list of blog entries End -->
+
+ 
         </div>
     </div>
 </section>
