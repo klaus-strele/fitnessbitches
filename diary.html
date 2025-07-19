@@ -14,12 +14,16 @@ title: The Diary of Pain
                 <div class="blog-items">
                     {% for post in site.posts %}
                      <!-- Blog Item Begin -->
-                    <div class="single-blog-item">
+                    <div class="single-blog-item" id="{{ post.id }}">
                         <div class="blog-text">
                             <h3>{{ post.date | date: "%b %d, %Y" }}</h3>
                             <div>
                                 {{ post.content }}
                             </div>
+                            <a href="#" class="blog-btn">
+                                Goto top
+                                <i class="fa fa-angle-up"></i>
+                            </a>
                         </div>
                     </div>
                     <!-- Blog Item End -->
@@ -27,7 +31,23 @@ title: The Diary of Pain
                 </div>
             </div>
             <!-- Main list of blog entries End -->
- 
+
+            <!-- Recent Workouts Begin -->
+            <div class="col-lg3 offset-lg-1">
+                <div class="blog-sidebar">
+                        <h4>Recent Workouts</h4>
+                        {% for post in site.posts limit: 10 %}
+                        <a href="#{{ post.id }}">
+                            <div>
+                                <h5>{{ post.date | date: "%b %d, %Y" }}</h5>
+                                <p>{{ post.title }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                </div>
+            </div>
+            <!-- Recent Workouts End -->
+
         </div>
     </div>
 </section>
