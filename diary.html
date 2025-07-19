@@ -5,23 +5,21 @@ title: The Diary of Pain
 {% include page_header.html %}
 
 <!-- Blog Section Begin -->
-<section class="blog-section spad">
+<section class="blog-section">
     <div class="container">
         <div class="row">
 
             <!-- Main list of blog entries Begin -->
-            <div class="col-lg-8">
+            <div class="col-lg-8 align-self-center">
                 <div class="blog-items">
-                    {% for post in site.posts limit:5 %}
+                    {% for post in site.posts %}
                      <!-- Blog Item Begin -->
                     <div class="single-blog-item">
                         <div class="blog-text">
-                            <a href="./blog-details.html">
-                                <h3>{{ post.date | date: "%b %d, %Y" }}</h3>
-                            </a>
-
-                            <p>{{ post.content }}</p>
-                            <a href="#" class="blog-btn">Read More <i class="fa  fa-angle-double-right"></i></a>
+                            <h3>{{ post.date | date: "%b %d, %Y" }}</h3>
+                            <div>
+                                {{ post.content }}
+                            </div>
                         </div>
                     </div>
                     <!-- Blog Item End -->
@@ -29,7 +27,6 @@ title: The Diary of Pain
                 </div>
             </div>
             <!-- Main list of blog entries End -->
-
  
         </div>
     </div>
